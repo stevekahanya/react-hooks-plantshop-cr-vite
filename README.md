@@ -1,93 +1,65 @@
-# Phase 2 Code Challenge: Plantsy
+Plantsy
+Plantsy is a React-based admin portal for a local plant shop. It allows shop managers to view their current inventory, add new plants via a dynamic form, track stock status, and search for specific plants in real-time.
 
-## Demo
+Shutterstock
+Explore
 
-Use this gif as an example of how the app should work.
+Features
+Inventory Management: View a complete list of all plants fetched from the backend.
 
-![Demo GIF](./demo.gif)
+Dynamic Search: Filter the inventory list by name instantly as you type.
 
-## Instructions
+Stock Tracking: Mark items as "Sold Out" or "In Stock" with a single click.
 
-Welcome to Plantsy! You've been tasked with building out some features for the
-admin side of a plant store. The designers have put together the components and
-CSS. Now it's up to you to bring the features to life by adding stateful logic
-as well as persisting data to the backend via our API.
+Inventory Expansion: Add new plants to the database using the integrated submission form.
 
-Your job will be to make our app work according to the user stories you will
-find the [Deliverables](#Deliverables) section.
+Installation
+To get this project running locally, follow these steps:
 
-## Setup
+Clone the repository:
 
-1. Run `npm install` in your terminal.
-2. Run `npm run server`. This will run your backend on port `6001`.
-3. In a new terminal, run `npm run dev`.
+Bash
+git clone <your-repo-link>
+Install dependencies:
 
-Make sure to open [http://localhost:6001/plants](http://localhost:6001/plants)
-in the browser to verify that your backend is working before you proceed!
+Bash
+npm install
+Start the Backend server:
 
-## Endpoints
+Bash
+npm run server
+Note: The server runs on http://localhost:6001.
 
-The base URL for your backend is: `http://localhost:6001`
+Start the Frontend application:
 
-## Deliverables
+Bash
+npm run dev
+API Endpoints
+GET /plants
+Returns an array of all plant objects.
 
-As a user:
+POST /plants
+Adds a new plant to the database.
 
-1. When the app starts, I can see all plants.
-2. I can add a new plant to the page by submitting the form.
-3. I can mark a plant as "sold out".
-4. I can search for plants by their name and see a filtered list of plants.
+Required Headers: { "Content-Type": "application/json" }
 
-### Endpoints for Core Deliverables
+Body Requirements:
 
-#### GET /plants
-
-Example Response:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Aloe",
-    "image": "./images/aloe.jpg",
-    "price": 15.99
-  },
-  {
-    "id": 2,
-    "name": "ZZ Plant",
-    "image": "./images/zz-plant.jpg",
-    "price": 25.98
-  }
-]
-```
-
-#### POST `/plants`
-
-Required Headers:
-
-```js
-{
-  "Content-Type": "application/json"
-}
-```
-
-Request Object:
-
-```json
+JSON
 {
   "name": "string",
   "image": "string",
   "price": number
 }
-```
+Technologies Used
+React: For UI and component-based architecture.
 
-Example Response:
+Vite: Frontend tooling for development and building.
 
-```json
-{
-  "id": 1,
-  "name": "Aloe",
-  "image": "./images/aloe.jpg",
-  "price": 15.99
-}
-```
+JSON-Server: Mock backend for REST API persistence.
+
+CSS3: Custom styling for a clean, plant-focused aesthetic.
+
+Completed Project Preview
+<img width="1331" height="768" alt="Screen Shot 2026-02-23 at 3 20 51 AM" src="https://github.com/user-attachments/assets/cb0061d2-7dd3-45dc-aa18-fde3282558a3" />
+

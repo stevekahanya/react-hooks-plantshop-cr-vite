@@ -22,12 +22,14 @@ function PlantPage() {
   });
 
   return (
-    <main>
-      <NewPlantForm onAddPlant={handleAddPlant} />
-      <Search searchTerm={searchTerm} onSetSearch={setSearchTerm} />
-      {/* Ensure you are passing the prop here */}
-      <PlantList plants={displayedPlants} />
-    </main>
+  <main>
+    <NewPlantForm onAddPlant={handleAddPlant} />
+    <Search searchTerm={searchTerm} onSetSearch={setSearchTerm} />
+    {/* Ensure you are passing the 'displayedPlants' variable here! */}
+    <ul className="cards">
+        <PlantList plants={displayedPlants} />
+    </ul>
+  </main>
   );
 }
 

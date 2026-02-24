@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 
-function NewPlantForm({ onAddPlant }) {
-  // 1. Initialize state for the form inputs
-  const [formData, setFormData] = useState({
-    name: "",
-    image: "",
-    price: "",
-  });
+function handleSubmit(e) {
+    e.preventDefault();
+
+    const newPlantData = {
+      name: formData.name,
+      image: formData.image,
+      price: parseFloat(formData.price), // <--- Ensure this is a number!
+    };
+
+    fetch("http://localhost:6001/plants", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newPlantData),
+    })
 
   // 2. Update state as the user types
   function handleChange(e) {
@@ -23,8 +30,9 @@ function NewPlantForm({ onAddPlant }) {
 
     // The backend expects price to be a number, not a string
     const newPlantData = {
-      ...formData,
-      price: parseFloat(formData.price),
+      name: formData.name,
+      image: formData.image,
+      price: parseFloat(formData.price), // <--- Use parseFloat or Number() here
     };
 
     fetch("http://localhost:6001/plants", {
@@ -36,13 +44,10 @@ function NewPlantForm({ onAddPlant }) {
     })
       .then((r) => r.json())
       .then((newPlant) => {
-        // Update the parent's state
         onAddPlant(newPlant);
-        // Reset the form fields
         setFormData({ name: "", image: "", price: "" });
       });
   }
-
   return (
     <div className="new-plant-form">
       <h2>New Plant</h2>

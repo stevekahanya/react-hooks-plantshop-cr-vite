@@ -13,8 +13,8 @@ function PlantPage() {
       .then((data) => setPlants(data));
   }, []);
 
-  function handleAddPlant(NewPlant) {
-    setPlants([...plants, NewPlant]);
+  function handleAddPlant(newPlant) {
+    setPlants([...plants, newPlant]);
   }
 
   const displayedPlants = plants.filter((plant) => {
@@ -22,14 +22,11 @@ function PlantPage() {
   });
 
   return (
-  <main>
-    <NewPlantForm onAddPlant={handleAddPlant} />
-    <Search searchTerm={searchTerm} onSetSearch={setSearchTerm} />
-    {/* Ensure you are passing the 'displayedPlants' variable here! */}
-    <ul className="cards">
-        <PlantList plants={displayedPlants} />
-    </ul>
-  </main>
+    <main>
+      <NewPlantForm onAddPlant={handleAddPlant} />
+      <Search searchTerm={searchTerm} onSetSearch={setSearchTerm} />
+      <PlantList plants={displayedPlants} />
+    </main>
   );
 }
 

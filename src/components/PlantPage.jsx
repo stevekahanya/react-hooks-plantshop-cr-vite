@@ -13,8 +13,8 @@ function PlantPage() {
       .then((data) => setPlants(data));
   }, []);
 
-  function handleAddPlant(newPlant) {
-    setPlants([...plants, newPlant]);
+  function handleAddPlant(NewPlant) {
+    setPlants([...plants, NewPlant]);
   }
 
   const displayedPlants = plants.filter((plant) => {
